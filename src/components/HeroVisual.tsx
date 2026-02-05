@@ -162,7 +162,7 @@ export function HeroVisual() {
     >
       {/* ─── Glow behind the composition ─── */}
       <div
-        className="animate-pulse-glow pointer-events-none absolute inset-0 -inset-x-20 -inset-y-10"
+        className="animate-pulse-glow pointer-events-none absolute inset-0 md:-inset-x-20 md:-inset-y-10"
         style={{
           background:
             "radial-gradient(ellipse at center, rgba(75, 146, 160, 0.12) 0%, transparent 55%)",
@@ -212,11 +212,11 @@ export function HeroVisual() {
             {/* Form fields */}
             <div className="space-y-3">
               <FormField label="Property Address" value={address} delay={0.6} />
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                 <FormField label="Seller" value={seller} delay={1.3} />
                 <FormField label="Buyer" value={buyer} delay={1.8} />
               </div>
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                 <FormField label="Purchase Price" value={price} delay={2.4} highlight />
                 <FormField label="Earnest Money" value="$5,000" delay={2.8} />
               </div>
@@ -347,11 +347,11 @@ export function HeroVisual() {
         style={{ x: card3X, y: card3Y }}
         className="absolute -bottom-6 left-1/2 z-20 -translate-x-1/2 md:-bottom-12"
       >
-        <div className="floating-card flex items-center gap-4 rounded-xl border border-white/[0.08] bg-bg-surface px-5 py-3 shadow-2xl shadow-black/40 md:gap-6">
+        <div className="floating-card flex items-center gap-3 rounded-xl border border-white/[0.08] bg-bg-surface px-4 py-2.5 shadow-2xl shadow-black/40 sm:gap-4 sm:px-5 sm:py-3 md:gap-6">
           <StatItem value="247" label="Contracts" delay={1.6} />
-          <div className="h-6 w-px bg-white/[0.08]" />
+          <div className="h-5 w-px bg-white/[0.08] sm:h-6" />
           <StatItem value="189" label="Signed" delay={1.8} />
-          <div className="h-6 w-px bg-white/[0.08]" />
+          <div className="h-5 w-px bg-white/[0.08] sm:h-6" />
           <StatItem value="98%" label="Close Rate" delay={2.0} highlight />
         </div>
       </motion.div>
