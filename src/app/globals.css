@@ -1,0 +1,291 @@
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════════════════
+   REI Sign — Design System Tokens (Tailwind v4)
+   ═══════════════════════════════════════════════════════ */
+
+@theme inline {
+  /* ─── Background Layers ─── */
+  --color-bg: #060B11;
+  --color-bg-surface: #0B1520;
+  --color-bg-elevated: #0F1D2F;
+  --color-bg-overlay: #142640;
+
+  /* ─── Brand Accent (from logo) ─── */
+  --color-accent: #4B92A0;
+  --color-accent-light: #62B4B7;
+  --color-accent-dark: #376E88;
+  --color-accent-muted: #A2C6C4;
+
+  /* ─── Semantic ─── */
+  --color-success: #10B981;
+  --color-warning: #F59E0B;
+
+  /* ─── Foreground ─── */
+  --color-fg: #FFFFFF;
+  --color-fg-secondary: #B0B8C4;
+  --color-fg-muted: #6B7A8D;
+  --color-fg-disabled: #3D4A5C;
+
+  /* ─── Radius Scale ─── */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+
+  /* ─── Font ─── */
+  --font-sans: var(--font-inter);
+
+  /* ─── Animation Timing ─── */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* ═══════════════════════════════════════════════════════
+   Base Styles
+   ═══════════════════════════════════════════════════════ */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: rgba(75, 146, 160, 0.3);
+  color: #fff;
+}
+
+/* ═══════════════════════════════════════════════════════
+   Utility Classes
+   ═══════════════════════════════════════════════════════ */
+
+/* Gradient text — white → teal-muted → teal-light */
+.text-gradient {
+  background: linear-gradient(135deg, #ffffff 20%, #A2C6C4 60%, #62B4B7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Gradient text — hero variant, bolder */
+.text-gradient-hero {
+  background: linear-gradient(
+    160deg,
+    #ffffff 0%,
+    #ffffff 40%,
+    #A2C6C4 70%,
+    #62B4B7 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glass card */
+.glass-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition:
+    border-color 0.3s ease,
+    background 0.3s ease,
+    transform 0.4s var(--ease-out-expo),
+    box-shadow 0.3s ease;
+}
+
+.glass-card:hover {
+  border-color: rgba(75, 146, 160, 0.25);
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow:
+    0 0 40px rgba(75, 146, 160, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* Floating card — solid dark bg for legibility over other elements */
+.floating-card {
+  transition:
+    border-color 0.3s ease,
+    transform 0.4s var(--ease-out-expo),
+    box-shadow 0.3s ease;
+}
+
+.floating-card:hover {
+  border-color: rgba(75, 146, 160, 0.2);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    0 0 40px rgba(75, 146, 160, 0.08);
+}
+
+/* Glow button */
+.glow-button {
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.25s var(--ease-out-expo),
+    box-shadow 0.3s ease;
+}
+
+.glow-button::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, #4B92A0, #62B4B7, #376E88);
+  z-index: -2;
+}
+
+.glow-button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, #376E88, #4B92A0);
+  z-index: -1;
+  transition: opacity 0.3s ease;
+}
+
+.glow-button:hover::after {
+  opacity: 0.85;
+}
+
+.glow-button:hover {
+  transform: translateY(-1px);
+  box-shadow:
+    0 0 20px rgba(75, 146, 160, 0.4),
+    0 0 60px rgba(75, 146, 160, 0.15);
+}
+
+.glow-button:active {
+  transform: translateY(0);
+}
+
+/* Navbar blur */
+.nav-blur {
+  background: rgba(6, 11, 17, 0.7);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+}
+
+/* Section divider — subtle gradient line */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(75, 146, 160, 0.2) 50%,
+    transparent 100%
+  );
+}
+
+/* ═══════════════════════════════════════════════════════
+   Keyframe Animations
+   ═══════════════════════════════════════════════════════ */
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) translateX(0px);
+  }
+  25% {
+    transform: translateY(-20px) translateX(10px);
+  }
+  50% {
+    transform: translateY(-10px) translateX(-5px);
+  }
+  75% {
+    transform: translateY(-25px) translateX(8px);
+  }
+}
+
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0px) translateX(0px) scale(1);
+  }
+  33% {
+    transform: translateY(-30px) translateX(15px) scale(1.05);
+  }
+  66% {
+    transform: translateY(-15px) translateX(-10px) scale(0.98);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.animate-float {
+  animation: float 8s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float-slow 12s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 3s ease-in-out infinite;
+  background-size: 200% auto;
+}
+
+/* ═══════════════════════════════════════════════════════
+   Noise / Grain Texture (very subtle)
+   ═══════════════════════════════════════════════════════ */
+
+.noise::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.015;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ═══════════════════════════════════════════════════════
+   Reduced Motion
+   ═══════════════════════════════════════════════════════ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .animate-float,
+  .animate-float-slow,
+  .animate-pulse-glow {
+    animation: none !important;
+  }
+}
