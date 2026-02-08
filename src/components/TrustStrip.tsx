@@ -36,7 +36,7 @@ export function TrustStrip() {
     <section className="relative px-6 py-20">
       <div className="section-divider mx-auto mb-16 max-w-[600px]" />
       <StaggerContainer
-        className="mx-auto grid max-w-[1000px] grid-cols-2 gap-6 lg:grid-cols-4 lg:gap-8"
+        className="mx-auto grid max-w-[1000px] grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4 lg:gap-8"
         staggerDelay={0.08}
       >
         {trustItems.map((item) => (
@@ -44,7 +44,7 @@ export function TrustStrip() {
             key={item.label}
             className="flex flex-col items-center gap-3 text-center"
           >
-            <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/[0.06] bg-white/[0.03]">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/[0.06] bg-white/[0.03] sm:h-12 sm:w-12">
               <item.icon className="h-5 w-5 text-accent" />
             </div>
             <div>

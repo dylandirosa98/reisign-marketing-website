@@ -87,7 +87,7 @@ export function HowItWorks() {
 
         {/* Steps Grid */}
         <StaggerContainer
-          className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5"
+          className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-4 lg:gap-5"
           staggerDelay={0.06}
         >
           {steps.map((step, i) => (
@@ -97,7 +97,7 @@ export function HowItWorks() {
                 i >= 4 ? "sm:col-span-1 lg:col-span-1" : ""
               }
             >
-              <div className="glass-card group relative h-full overflow-hidden rounded-2xl p-6">
+              <div className="glass-card group relative h-full overflow-hidden rounded-2xl p-4 sm:p-6">
                 {/* Step number */}
                 <span className="mb-4 block font-mono text-xs font-semibold text-accent/60">
                   {step.number}

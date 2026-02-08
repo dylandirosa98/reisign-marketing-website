@@ -21,7 +21,7 @@ export function Footer() {
   return (
     <footer className="border-t border-white/[0.06] px-6 py-12 lg:py-16">
       <div className="mx-auto max-w-[1200px]">
-        <div className="grid grid-cols-2 gap-8 md:grid-cols-4 lg:grid-cols-5">
+        <div className="grid grid-cols-2 gap-6 md:grid-cols-4 md:gap-8 lg:grid-cols-5">
           {/* Logo & tagline */}
           <div className="col-span-2 lg:col-span-2">
             <div className="flex items-center">
@@ -30,7 +30,7 @@ export function Footer() {
                 alt="REI Sign"
                 width={818}
                 height={264}
-                className="h-13 w-auto"
+                className="h-10 w-auto sm:h-13"
               />
             </div>
             <p className="mt-3 max-w-[280px] text-sm leading-relaxed text-fg-muted">

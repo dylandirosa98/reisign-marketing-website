@@ -44,7 +44,7 @@ export function Navbar() {
             : "bg-transparent"
         }`}
       >
-        <div className="mx-auto flex max-w-[1200px] items-center justify-between px-6 py-4">
+        <div className="mx-auto flex max-w-[1200px] items-center justify-between px-4 py-3 sm:px-6 sm:py-4">
           {/* Logo — icon + text */}
           <a href="/" className="relative z-10 flex items-center">
             <Image
@@ -52,7 +52,7 @@ export function Navbar() {
               alt="REI Sign"
               width={818}
               height={264}
-              className="h-12 w-auto"
+              className="h-9 w-auto max-w-[140px] sm:h-12 sm:max-w-none"
               priority
             />
           </a>
@@ -90,10 +90,10 @@ export function Navbar() {
           {/* Mobile Hamburger */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="relative z-10 rounded-lg p-2 text-fg-secondary transition-colors hover:text-fg md:hidden"
+            className="relative z-10 flex h-10 w-10 items-center justify-center rounded-lg border border-white/[0.1] bg-white/[0.05] text-fg transition-colors hover:bg-white/[0.1] md:hidden"
             aria-label="Toggle menu"
           >
-            {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
       </motion.nav>

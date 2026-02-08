@@ -79,9 +79,9 @@ export function AIFeature() {
               </div>
 
               {/* Panel body */}
-              <div className="space-y-4 p-5">
+              <div className="space-y-4 p-4 sm:p-5">
                 {/* Input area mock */}
-                <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4">
+                <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-3 sm:p-4">
                   <p className="text-xs font-medium text-fg-muted uppercase tracking-wide mb-2">
                     Deal Description
                   </p>

@@ -139,7 +139,7 @@ export function SigningProcess() {
             </div>
 
             {/* Right: Stage cards — compact, matched to contract height */}
-            <div className="flex flex-col justify-between gap-3 lg:gap-3">
+            <div className="flex flex-col justify-between gap-2 sm:gap-3 lg:gap-3">
               {stages.map((stage, i) => (
                 <StageCard key={stage.key} stage={stage} index={i} />
               ))}
@@ -337,7 +337,7 @@ function StageCard({
         delay: index * 0.05,
         ease: [0.16, 1, 0.3, 1],
       }}
-      className="group relative flex-1 rounded-2xl border border-white/[0.06] bg-bg-surface/50 px-5 py-4 transition-all duration-300 hover:border-accent/15 hover:bg-bg-surface"
+      className="group relative flex-1 rounded-2xl border border-white/[0.06] bg-bg-surface/50 px-4 py-3 transition-all duration-300 hover:border-accent/15 hover:bg-bg-surface sm:px-5 sm:py-4"
     >
       <div className="mb-2 flex items-center gap-3">
         <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-white/[0.08] bg-white/[0.04] transition-colors duration-300 group-hover:border-accent/20 group-hover:bg-accent/5">

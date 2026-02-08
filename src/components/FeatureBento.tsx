@@ -93,7 +93,7 @@ export function FeatureBento() {
 
         {/* Bento Grid */}
         <StaggerContainer
-          className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-5"
+          className="grid grid-cols-1 gap-3 sm:gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-5"
           staggerDelay={0.08}
         >
           {features.map((feature) => (
@@ -105,7 +105,7 @@ export function FeatureBento() {
                   : ""
               }
             >
-              <div className="glass-card group relative h-full overflow-hidden rounded-2xl p-6 lg:p-8">
+              <div className="glass-card group relative h-full overflow-hidden rounded-2xl p-4 sm:p-6 lg:p-8">
                 {/* Gradient background */}
                 <div
                   className={`pointer-events-none absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 transition-opacity duration-500 group-hover:opacity-100`}
@@ -113,7 +113,7 @@ export function FeatureBento() {
 
                 {/* Content */}
                 <div className="relative z-10">
-                  <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl border border-white/[0.08] bg-white/[0.04]">
+                  <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-xl border border-white/[0.08] bg-white/[0.04] sm:mb-4 sm:h-10 sm:w-10">
                     <feature.icon className="h-5 w-5 text-accent" />
                   </div>
                   <h3 className="mb-2 text-lg font-semibold text-fg">

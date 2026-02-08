@@ -119,6 +119,8 @@ export function HeroVisual() {
   const containerRef = useRef<HTMLDivElement>(null);
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
+  const [touchStart, setTouchStart] = useState<{ x: number; y: number } | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
 
   const springConfig = { stiffness: 100, damping: 30, mass: 0.5 };
   const smoothX = useSpring(mouseX, springConfig);
@@ -134,6 +136,15 @@ export function HeroVisual() {
   const mainRotateX = useTransform(smoothY, [-300, 300], [2, -2]);
   const mainRotateY = useTransform(smoothX, [-300, 300], [-2, 2]);
 
+  // Mobile detection
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  // Mouse movement for desktop
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       if (!containerRef.current) return;
@@ -148,6 +159,46 @@ export function HeroVisual() {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, [mouseX, mouseY]);
 
+  // Touch handling for mobile swipe/tilt
+  useEffect(() => {
+    if (!isMobile) return;
+
+    const handleTouchStart = (e: TouchEvent) => {
+      const touch = e.touches[0];
+      setTouchStart({ x: touch.clientX, y: touch.clientY });
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+      if (!touchStart || !containerRef.current) return;
+      const touch = e.touches[0];
+      const deltaX = (touch.clientX - touchStart.x) * 1.5;
+      const deltaY = (touch.clientY - touchStart.y) * 1.5;
+      mouseX.set(deltaX);
+      mouseY.set(deltaY);
+    };
+
+    const handleTouchEnd = () => {
+      setTouchStart(null);
+      mouseX.set(0);
+      mouseY.set(0);
+    };
+
+    const container = containerRef.current;
+    if (container) {
+      container.addEventListener("touchstart", handleTouchStart, { passive: true });
+      container.addEventListener("touchmove", handleTouchMove, { passive: true });
+      container.addEventListener("touchend", handleTouchEnd, { passive: true });
+    }
+
+    return () => {
+      if (container) {
+        container.removeEventListener("touchstart", handleTouchStart);
+        container.removeEventListener("touchmove", handleTouchMove);
+        container.removeEventListener("touchend", handleTouchEnd);
+      }
+    };
+  }, [isMobile, touchStart, mouseX, mouseY]);
+
   // Typed fields — fast, snappy timing
   const address = useTypewriter("1247 Oak Ridge Drive, Tampa, FL", 800, 22);
   const seller = useTypewriter("Michael Johnson", 1600, 28);
@@ -157,7 +208,7 @@ export function HeroVisual() {
   return (
     <div
       ref={containerRef}
-      className="relative mx-auto mt-16 w-full max-w-[800px] md:mt-20"
+      className="relative mx-auto mt-12 w-full max-w-[800px] touch-pan-y px-2 sm:mt-16 sm:px-0 md:mt-20"
       style={{ perspective: "1200px" }}
     >
       {/* ─── Glow behind the composition ─── */}
@@ -179,7 +230,7 @@ export function HeroVisual() {
       >
         <div className="glass-card overflow-hidden rounded-2xl">
           {/* Title bar */}
-          <div className="flex items-center justify-between border-b border-white/[0.06] bg-white/[0.02] px-5 py-3">
+          <div className="flex items-center justify-between border-b border-white/[0.06] bg-white/[0.02] px-3 py-2 sm:px-5 sm:py-3">
             <div className="flex items-center gap-3">
               <div className="flex gap-1.5">
                 <span className="h-2.5 w-2.5 rounded-full bg-white/10" />
@@ -227,7 +278,7 @@ export function HeroVisual() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 3.2, duration: 0.5 }}
-              className="mt-5 rounded-xl border border-dashed border-white/[0.08] bg-white/[0.01] px-4 py-3"
+              className="mt-5 rounded-xl border border-dashed border-white/[0.08] bg-white/[0.01] px-3 py-2.5 sm:px-4 sm:py-3"
             >
               <div className="flex items-center justify-between">
                 <div>
@@ -345,7 +396,7 @@ export function HeroVisual() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 1.4, ease: [0.16, 1, 0.3, 1] }}
         style={{ x: card3X, y: card3Y }}
-        className="absolute -bottom-6 left-1/2 z-20 -translate-x-1/2 md:-bottom-12"
+        className="absolute -bottom-6 left-1/2 z-20 hidden -translate-x-1/2 md:-bottom-12 md:block"
       >
         <div className="floating-card flex items-center gap-3 rounded-xl border border-white/[0.08] bg-bg-surface px-4 py-2.5 shadow-2xl shadow-black/40 sm:gap-4 sm:px-5 sm:py-3 md:gap-6">
           <StatItem value="247" label="Contracts" delay={1.6} />

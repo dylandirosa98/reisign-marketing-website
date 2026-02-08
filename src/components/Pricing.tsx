@@ -126,13 +126,13 @@ export function Pricing() {
 
         {/* Pricing Grid */}
         <StaggerContainer
-          className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4"
+          className="grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-2 lg:grid-cols-4"
           staggerDelay={0.08}
         >
           {plans.map((plan) => (
             <StaggerItem key={plan.name}>
               <div
-                className={`glass-card relative flex h-full flex-col overflow-hidden rounded-2xl p-6 ${
+                className={`glass-card relative flex h-full flex-col overflow-hidden rounded-2xl p-4 sm:p-6 ${
                   plan.highlighted
                     ? "border-accent/25 bg-accent/[0.04]"
                     : ""
@@ -152,7 +152,7 @@ export function Pricing() {
 
                 {/* Price */}
                 <div className="mt-3 flex items-baseline gap-1">
-                  <span className="text-4xl font-bold text-fg">
+                  <span className="text-3xl font-bold text-fg sm:text-4xl">
                     {plan.price}
                   </span>
                   <span className="text-sm text-fg-muted">{plan.period}</span>
@@ -167,7 +167,7 @@ export function Pricing() {
                 <div className="my-6 h-px bg-white/[0.06]" />
 
                 {/* Features */}
-                <ul className="flex-1 space-y-3">
+                <ul className="flex-1 space-y-2 sm:space-y-3">
                   {plan.features.map((feature) => (
                     <li
                       key={feature}
@@ -182,7 +182,7 @@ export function Pricing() {
                 {/* CTA */}
                 <a
                   href={plan.href}
-                  className={`mt-6 flex items-center justify-center gap-2 rounded-xl py-3 text-sm font-semibold transition-all duration-300 ${
+                  className={`mt-5 flex items-center justify-center gap-2 rounded-xl py-2.5 text-sm font-semibold transition-all duration-300 sm:mt-6 sm:py-3 ${
                     plan.highlighted
                       ? "glow-button text-white"
                       : "border border-white/[0.1] bg-white/[0.03] text-fg hover:border-white/[0.15] hover:bg-white/[0.05]"

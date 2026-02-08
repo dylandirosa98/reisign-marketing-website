@@ -9,14 +9,14 @@ export function FinalCTA() {
       {/* Background glows */}
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
         <div
-          className="animate-float-slow absolute top-1/2 left-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-[0.12]"
+          className="animate-float-slow absolute top-1/2 left-1/2 h-[350px] w-[350px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-[0.12] md:h-[600px] md:w-[600px]"
           style={{
             background:
               "radial-gradient(circle, rgba(75, 146, 160, 0.6) 0%, transparent 55%)",
           }}
         />
         <div
-          className="animate-float absolute bottom-0 right-[20%] h-[300px] w-[300px] rounded-full opacity-[0.08]"
+          className="animate-float absolute bottom-0 right-[20%] h-[200px] w-[200px] rounded-full opacity-[0.08] md:h-[300px] md:w-[300px]"
           style={{
             background:
               "radial-gradient(circle, rgba(98, 180, 183, 0.7) 0%, transparent 60%)",
@@ -40,7 +40,7 @@ export function FinalCTA() {
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a
               href="https://app.reisign.com/signup"
-              className="glow-button inline-flex items-center gap-2.5 rounded-xl px-10 py-4 text-base font-semibold text-white"
+              className="glow-button inline-flex items-center gap-2.5 rounded-xl px-8 py-3.5 text-base font-semibold text-white sm:px-10 sm:py-4"
             >
               Get Started Free
               <ArrowRight className="h-4 w-4" />
