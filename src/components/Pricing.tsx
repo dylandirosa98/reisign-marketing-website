@@ -35,7 +35,7 @@ const plans: Plan[] = [
     name: "Standard",
     price: "$39",
     period: "/mo",
-    description: "For solo wholesalers closing deals",
+    description: "For solo real estate professionals closing deals",
     features: [
       "5 contracts per month",
       "1 user",

@@ -16,17 +16,17 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "REI Sign — Contract Management for Real Estate Wholesalers",
+  title: "REI Sign — Contract Management for Real Estate Professionals",
   description:
-    "Create, sign, and manage real estate contracts in minutes. AI-powered clauses, state-specific templates, and professional e-signatures built for wholesalers.",
+    "Create, sign, and manage real estate contracts in minutes. AI-powered clauses, state-specific templates, and professional e-signatures built for real estate professionals.",
   icons: {
     icon: "/favicon.png",
     apple: "/apple-touch-icon.png",
   },
   openGraph: {
-    title: "REI Sign — Contract Management for Real Estate Wholesalers",
+    title: "REI Sign — Contract Management for Real Estate Professionals",
     description:
-      "Create, sign, and manage real estate contracts in minutes. AI-powered clauses, state-specific templates, and professional e-signatures built for wholesalers.",
+      "Create, sign, and manage real estate contracts in minutes. AI-powered clauses, state-specific templates, and professional e-signatures built for real estate professionals.",
     type: "website",
     url: "https://reisign.com",
   },

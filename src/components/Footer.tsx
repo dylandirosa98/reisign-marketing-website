@@ -35,7 +35,7 @@ export function Footer() {
             </div>
             <p className="mt-3 max-w-[280px] text-sm leading-relaxed text-fg-muted">
               Contract management & e-signature platform built for real estate
-              wholesalers.
+              professionals.
             </p>
           </div>
 

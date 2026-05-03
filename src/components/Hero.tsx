@@ -60,7 +60,7 @@ export function Hero() {
           >
             <span className="block">The Contract Platform</span>
             <span className="text-gradient-hero mt-2 block">
-              Built for Wholesalers
+              Built for Real Estate Professionals
             </span>
           </motion.h1>
 
